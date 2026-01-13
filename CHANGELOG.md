@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2026-01-13 16:45
+
+### Added
+- `report.ipynb`: Jupyter notebook for CSC420 Assignment 1 report
+  - Task I - Inspection: Visual comparison and statistical analysis of DBIsubset vs SDDsubset
+  - Code to display side-by-side image comparisons across all 7 breeds
+  - Image statistics analysis (width, height, aspect ratio, file size distributions)
+  - Visualization of image dimension distributions (histograms and scatter plots)
+  - Detailed written analysis of systematic differences between datasets
+
+### Task I Findings
+- **DBIsubset**: Professional/stock photos, clean backgrounds, well-centered dogs, variable resolutions
+- **SDDsubset**: User-generated/web-scraped images, cluttered backgrounds, candid poses, more consistent resolution
+- Identified implications for CNN training including domain shift concerns
+
 ## [0.2.0] - 2026-01-13 16:26
 
 ### Added
@@ -32,7 +47,7 @@ All notable changes to this project will be documented in this file.
   - Deletes SDD annotations folder (bounding boxes not needed for classification)
   - Creates `DBIsubset/` folder with standardized breed folder names
   - Creates `SDDsubset/` folder with standardized breed folder names
-  - Generates `DBIsubset.zip` and `SDDsubset.zip` for Google Colab upload
+  - Generates `DBIsubset.zip` and `SDDsubset.zip`.
 
 ### Dataset Summary
 - **DBIsubset**: 646 total images
