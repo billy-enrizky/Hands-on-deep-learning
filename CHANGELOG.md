@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.2] - 2026-01-14 17:58
+
+### Updated
+- `report.ipynb`: Updated Task II analysis with actual experimental results
+  - Documented hyperparameter tuning findings:
+    - Best config: Adam, LR=0.001, WD=1e-4 (37.50% val accuracy)
+    - Adam outperformed SGD at LR=0.001; SGD better at LR=0.01
+    - LR=0.0001 too slow for convergence in 5 epochs
+  - Added results table comparing dropout vs no-dropout models
+  - Explained negative generalization gap (-11.42%) with dropout
+  - Analyzed why no-dropout model has higher test accuracy despite overfitting
+  - Discussed small dataset challenges (646 images, 7 classes)
+
+### Experimental Results Summary
+- **With Dropout**: Train 29.20%, Val 40.62%, Test 34.69%, Gap -11.42%
+- **Without Dropout**: Train 53.10%, Val 39.58%, Test 47.96%, Gap +13.51%
+
 ## [0.6.1] - 2026-01-14 16:39
 
 ### Changed
