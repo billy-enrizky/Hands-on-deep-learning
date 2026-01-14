@@ -1,0 +1,26 @@
+[project]
+name = "csc420-a1-cnn"
+version = "0.1.0"
+description = "CSC420 Assignment 1 - CNN Dog Breed Classification"
+readme = "CHANGELOG.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24.0",
+    "matplotlib>=3.7.0",
+    "pillow>=10.0.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "scikit-learn>=1.3.0",
+    "ipykernel>=6.25.0",
+    "jupyter>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipython>=8.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipython>=8.0.0",
+]

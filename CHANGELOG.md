@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2026-01-13 21:07
+
+### Added
+- `pyproject.toml`: Project configuration for isolated Python environment
+  - Python >=3.10 required
+  - Dependencies: numpy, matplotlib, pillow, torch, torchvision, scikit-learn, ipykernel, jupyter
+  - Dev dependencies: ipython
+
+### Environment Setup
+- Created `.venv` virtual environment using `uv venv`
+- Installed all dependencies with `uv sync` (117 packages)
+- Registered Jupyter kernel: `csc420-a1-cnn` (display name: "CSC420 A1 CNN")
+- Kernel location: `/Users/billy/Library/Jupyter/kernels/csc420-a1-cnn`
+
+### Usage
+```bash
+# Activate environment
+source .venv/bin/activate
+
+# Or run directly with uv
+uv run python script.py
+uv run jupyter notebook
+```
+
 ## [0.3.0] - 2026-01-13 16:45
 
 ### Added
