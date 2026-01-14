@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.1] - 2026-01-14 01:11
+
+### Fixed
+- `report.ipynb`: Updated Task II analysis to accurately reflect experimental results
+  - Corrected explanation of negative generalization gap with dropout (validation > training accuracy)
+  - Explained why dropout model has lower test accuracy (needs more epochs to converge)
+  - Added detailed analysis of overfitting evidence in model without dropout
+  - Clarified the trade-off between regularization and convergence speed
+
+## [0.5.0] - 2026-01-13 22:13
+
+### Added
+- `report.ipynb`: Task II - Simple CNN Training on DBI (60 marks)
+  - Implemented SimpleCNN architecture with configurable dropout
+  - CNN Architecture: Conv(16)->BN->Conv(16)->MaxPool->Conv(8)->BN->Conv(8)->MaxPool->Dropout->FC(32)->Dropout->Softmax
+  - Data augmentation: random cropping, horizontal flipping, color jitter, rotation
+  - Training with Adam optimizer, CrossEntropyLoss, and learning rate scheduler
+  - Dataset split: 70% train, 15% validation, 15% test
+
+### Task II Implementation
+- **Model Architecture**:
+  - 4 convolutional layers (16-16-8-8 filters, 3x3 kernels)
+  - 2 batch normalization layers
+  - 2 max pooling layers (2x2)
+  - Dropout layers (rate=0.5, configurable)
+  - Fully connected layer (32 units)
+  - ReLU activation throughout
+  
+- **Training Configuration**:
+  - Image size: 64x64
+  - Batch size: 32
+  - Learning rate: 0.001
+  - Weight decay: 1e-4
+  - Epochs: 10
+  
+- **Experiments**:
+  - Training with dropout (0.5) - plots training/validation accuracy over 10 epochs
+  - Training without dropout - plots training/validation accuracy over 10 epochs
+  - Comparison analysis of dropout impact on generalization
+  - Test accuracy reported for both models
+
 ## [0.4.0] - 2026-01-13 21:07
 
 ### Added
