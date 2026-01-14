@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.1] - 2026-01-14 16:39
+
+### Changed
+- `report.ipynb`: Replaced `x.view(x.size(0), -1)` with `nn.Flatten()` in SimpleCNN model
+  - Added `self.flatten = nn.Flatten()` as a proper module in `__init__`
+  - Using `nn.Flatten()` is cleaner, more explicit, and follows PyTorch best practices
+  - The flatten layer now appears in the model architecture printout
+
 ## [0.6.0] - 2026-01-14 16:35
 
 ### Added
