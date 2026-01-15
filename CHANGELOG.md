@@ -2,6 +2,83 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.7.5] - 2026-01-15 12:13
+
+### Updated
+- `report.ipynb`: Updated Task III analysis cells with actual experimental results
+  - **Task III.a Analysis** (Cell 34):
+    - Full comparison table with all metrics (architecture, parameters, epochs, accuracies, gaps)
+    - ResNet-18: Train 52.65%, Val 33.33%, Test 41.84%, Gap +19.32%
+    - Key finding: SimpleCNN (no dropout) achieves best test accuracy (47.96%)
+    - Analysis of overfitting in ResNet-18 due to high capacity vs small dataset
+    - Conclusion: model complexity must match dataset size
+  - **Task III.b Analysis** (Cell 39):
+    - DBI Test: 41.84%, SDD: 30.82%, Difference: +11.02%
+    - Confirmed DBI accuracy higher due to domain shift
+    - Concise 1-2 sentence explanation as required by assignment
+
+### Experimental Results Summary (Task III)
+- **ResNet-18 (from scratch)**: Train 52.65%, Val 33.33%, Test 41.84%, Gap +19.32%
+- **DBI vs SDD**: DBI test 41.84% > SDD 30.82% (domain shift)
+
+## [0.7.4] - 2026-01-15 11:41
+
+### Fixed
+- `report.ipynb`: Task III comparison cell failing with `NameError: name 'history_with_dropout' is not defined`
+  - Added pickle save/load mechanism to persist results between tasks
+  - Task II summary cell (Cell 24) now saves results to `task2_results.pkl`
+  - Task III ResNet evaluation cell (Cell 32) now saves results to `task3_results.pkl`
+  - Task III comparison cell (Cell 33) now loads both pickle files instead of relying on in-memory variables
+  - Task III.b cells (Cells 37, 38) now load `resnet_test_acc` from pickle
+  - This allows cells to be run independently without re-running all previous cells
+
+## [0.7.3] - 2026-01-15 11:31
+
+### Fixed
+- `report.ipynb`: Task II (SimpleCNN) data loading - removed redundant transform
+  - Changed `datasets.ImageFolder(DATA_DIR, transform=train_transform)` to `transform=None`
+  - Now consistent with Task III fix - transforms only applied via `TransformSubset`
+  - Updated comments to match Task III style
+
+## [0.7.2] - 2026-01-15 11:11
+
+### Fixed
+- `report.ipynb`: Task III.a logging not showing output in Jupyter notebook
+  - Added `logging.basicConfig()` before `logging.getLogger(__name__)` 
+  - Without basicConfig, the logger has no handler and messages are not displayed
+  - Now consistent with logging setup in Task I and Task II cells
+
+## [0.7.1] - 2026-01-15 10:58
+
+### Fixed
+- `report.ipynb`: Task III data loading - removed redundant transform
+  - Changed `datasets.ImageFolder(DATA_DIR, transform=resnet_train_transform)` to `transform=None`
+  - Transforms are now only applied via `TransformSubset` class (cleaner, no double transformation)
+  - Added clearer comments explaining why different transforms are needed for train vs val/test
+
+## [0.7.0] - 2026-01-15 10:37
+
+### Added
+- `report.ipynb`: Task III - ResNet Training on the DBI (80 marks)
+  - **Task III.a (40 marks)**: ResNet-18 training from scratch
+    - Load ResNet-18 architecture from PyTorch (without pretrained weights)
+    - Modified input/output layers to match DBI dataset (7 classes)
+    - Training configuration: 224x224 input, Adam optimizer, LR=0.001, 15 epochs
+    - Training and validation accuracy plots
+    - Comparison table: ResNet-18 vs SimpleCNN (with/without dropout)
+    - Analysis of model capacity vs dataset size trade-offs
+  - **Task III.b (40 marks)**: ResNet-18 evaluation on SDD dataset
+    - Evaluate trained model on entire SDDsubset (1,233 images)
+    - Compare DBI test accuracy vs SDD accuracy
+    - Analysis of domain shift between DBI and SDD datasets
+    - Explanation of why accuracy differs between datasets
+
+### Technical Details
+- ResNet-18 parameters: ~11.2M (vs ~68K for SimpleCNN)
+- Input size: 224x224 (vs 64x64 for SimpleCNN)
+- Same data augmentation strategy as Task II
+- Same train/val/test split (70/15/15) with seed=42 for fair comparison
+
 ## [0.6.2] - 2026-01-14 17:58
 
 ### Updated
