@@ -2,6 +2,63 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8.1] - 2026-01-15 15:43
+
+### Updated
+- `report.ipynb`: Updated Task IV analysis cell with actual experimental results
+  - **Results Summary** (sorted by DBI Test Accuracy):
+    - Swin-T: DBI 97.96%, SDD 95.86%, Gap +2.10% (best overall)
+    - ResNet-34: DBI 96.94%, SDD 88.97%, Gap +7.97%
+    - ResNeXt-50: DBI 94.90%, SDD 93.67%, Gap +1.22% (best generalization)
+    - ResNet-18: DBI 93.88%, SDD 89.13%, Gap +4.75%
+    - EfficientNet-B0: DBI 84.69%, SDD 76.48%, Gap +8.21%
+  - **Cross-dataset performance analysis**:
+    - ResNeXt-50 has smallest gap (+1.22%) - best domain generalization
+    - Swin-T achieves highest accuracy on both datasets
+    - ResNet-34 vs ResNeXt-50: similar DBI accuracy but 4.7% difference on SDD
+  - **Comparison with Task III** (training from scratch):
+    - ResNet-18 fine-tuned: 93.88% vs 41.84% (+52.04% improvement)
+    - SDD accuracy: 89.13% vs 30.82% (+58.31% improvement)
+    - Performance gap reduced from +11.02% to +4.75%
+  - **Key conclusions**:
+    - Transfer learning is essential for small datasets
+    - Swin Transformer achieves best overall performance
+    - ResNeXt-50 has best cross-domain generalization
+    - Architecture choice significantly impacts domain transfer
+
+### Experimental Results Summary (Task IV)
+- **Best DBI Test Accuracy**: Swin-T (97.96%)
+- **Best SDD Accuracy**: Swin-T (95.86%)
+- **Best Generalization (smallest gap)**: ResNeXt-50 (+1.22%)
+- **Fine-tuning vs Scratch**: +52% improvement on DBI, +58% on SDD
+
+## [0.8.0] - 2026-01-15 12:43
+
+### Added
+- `report.ipynb`: Task IV - Fine-tuning on the DBI (100 marks)
+  - **Fine-tuning 5 pretrained models** on DBI dataset:
+    1. ResNet-18 (torchvision) - 11.2M parameters
+    2. ResNet-34 (torchvision) - 21.3M parameters
+    3. ResNeXt-50 (torchvision) - 23.0M parameters
+    4. Swin Transformer tiny (torchvision) - 28.3M parameters
+    5. EfficientNet-B0 (timm) - 4.0M parameters
+  - Transfer learning with ImageNet pretrained weights
+  - Final layer replacement for 7-class dog breed classification
+  - Training configuration: 224x224 input, Adam optimizer, LR=0.0001, 10 epochs
+  - Evaluation on both DBI test set and entire SDD dataset
+  - Cross-dataset performance comparison and analysis
+  - Visualization: DBI vs SDD accuracy, performance gaps, training history
+  - Results saved to `task4_results.pkl` for persistence
+
+### Dependencies
+- Added `timm>=1.0.0` to `pyproject.toml` for EfficientNet-B0 model
+
+### Technical Details
+- Fine-tuning uses lower learning rate (0.0001) than training from scratch
+- Best model checkpoint saved during training based on validation accuracy
+- Same data split (70/15/15) and augmentation strategy as previous tasks
+- Cross-dataset evaluation measures generalization to different data distribution
+
 ## [0.7.5] - 2026-01-15 12:13
 
 ### Updated
