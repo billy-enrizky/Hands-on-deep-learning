@@ -2,6 +2,63 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.1] - 2026-01-21 18:00
+
+### Updated
+- `report.ipynb`: Updated Task V analysis cell with actual experimental results
+  - **Results Summary** (sorted by Test Accuracy):
+    - Swin-T: **91.84%** test accuracy (DBI 84.54%, SDD 95.68%) - best overall
+    - ResNeXt-50: 89.01% test accuracy (DBI 84.54%, SDD 91.35%)
+    - ResNet-18: 87.94% test accuracy (DBI 88.66%, SDD 87.57%) - most balanced
+  - **Key findings**:
+    - SDD images easier to detect (87-96%) than DBI images (84-89%)
+    - Swin Transformer outperforms CNNs for dataset detection
+    - All models achieve ~99.5% training accuracy but 88-92% test accuracy
+  - **Confusion matrices** for all three models
+  - **Conclusions**:
+    - Dataset detection achieves 91.84% accuracy, confirming domain shift
+    - Self-attention more effective than convolutions for this task
+    - Results validate domain shift concerns from earlier tasks
+
+### Experimental Results Summary (Task V)
+- **Best Test Accuracy**: Swin-T (91.84%)
+- **Best DBI Detection**: ResNet-18 (88.66%)
+- **Best SDD Detection**: Swin-T (95.68%)
+- **Dataset Split**: 1315 train / 282 val / 282 test (stratified)
+
+## [0.9.0] - 2026-01-21 16:49
+
+### Added
+- `report.ipynb`: Task V - Dataset Detection (80 marks)
+  - **Binary classification model** to distinguish DBI vs SDD images
+  - Custom `DatasetDetectionDataset` class combining both datasets with binary labels
+  - Stratified train/val/test split (70/15/15) preserving class distribution
+  - **Fine-tuning 3 pretrained models** for binary classification:
+    1. ResNeXt-50 (primary model) - 23.0M parameters
+    2. Swin-T (comparison) - 27.5M parameters
+    3. ResNet-18 (baseline) - 11.2M parameters
+  - Training configuration: 224x224 input, Adam optimizer, LR=0.0001, 15 epochs
+  - Comprehensive evaluation with per-class accuracy and confusion matrices
+  - Visualization: test accuracy comparison, per-class detection, training curves, confusion matrices
+  - Results saved to `task5_results.pkl` for persistence
+
+### Model Selection Justification
+- **ResNeXt-50** chosen as primary model based on Task IV results:
+  - Best domain generalization (smallest gap +1.22% between DBI and SDD)
+  - Grouped convolutions learn diverse, domain-invariant features
+  - Appropriate capacity (23M parameters) for detecting dataset characteristics
+
+### Technical Details
+- Combined dataset: 646 DBI + 1233 SDD = 1879 total images
+- Binary labels: DBI=0, SDD=1
+- Stratified splitting ensures class ratio preserved across splits
+- Same data augmentation strategy as Task IV (random crop, flip, color jitter, rotation)
+
+### Data Organization
+- Custom `DatasetDetectionDataset` class (alternative to reorganizing with ImageFolder)
+- `SplitDataset` wrapper for applying different transforms to train/val/test
+- Efficient data loading without physically reorganizing the dataset structure
+
 ## [0.8.1] - 2026-01-15 15:43
 
 ### Updated
