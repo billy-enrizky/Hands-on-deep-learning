@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.12] - 2026-01-22 21:34
+
+### Verified
+- `report.ipynb`: Question 10 Analysis Cell (Cell 78) - Complete fact verification via web search
+  - **All 25 facts verified against authoritative sources**:
+  
+  **CSRT Tracker**:
+  - Lukezic et al., CVPR 2017 - VERIFIED (CVPR Open Access)
+  - Also published in IJCV 2018 - VERIFIED (Springer)
+  - Uses HoG and ColorNames features - VERIFIED (Paper)
+  - State-of-the-art on VOT 2015/2016, OTB100 - VERIFIED (Paper)
+  
+  **DaSiamRPN Tracker**:
+  - Zhu et al., ECCV 2018 - VERIFIED (ECCV Open Access)
+  - VOT-18 Real-time Challenge Winner - VERIFIED (GitHub README)
+  - 160 FPS on short-term benchmarks - VERIFIED (Paper)
+  - 110 FPS on long-term benchmarks - VERIFIED (Paper)
+  - 9.6% gain on VOT2016 - VERIFIED (Paper)
+  - 35.9% gain on UAV20L - VERIFIED (Paper)
+  - ~154 MB model size - VERIFIED (Actual files: 154.35 MB)
+  
+  **VitTrack Tracker**:
+  - GSoC 2023, Pengyu Liu - VERIFIED (Hugging Face README)
+  - 48.6 AUC on LaSOT - VERIFIED (Hugging Face README)
+  - 54.7 Pnorm on LaSOT - VERIFIED (Hugging Face README)
+  - 0.7 MB model size - VERIFIED (Actual file: 0.68 MB)
+  - 20% faster than NanoTrack on ARM - VERIFIED (Hugging Face README)
+  - 3X faster with 4 threads on M2 (1.46ms vs 4.49ms) - VERIFIED (Hugging Face README)
+  - Provides confidence scores - VERIFIED (Hugging Face README)
+  
+  **NanoTrack Comparison**:
+  - 46.8 AUC on LaSOT - VERIFIED (Hugging Face README)
+  - 43.3 Pnorm on LaSOT - VERIFIED (Hugging Face README)
+  - Returns constant 0.9 score - VERIFIED (Hugging Face README)
+  
+  **MediaPipe**:
+  - Lugaresi et al., CVPR 2019 Workshop - VERIFIED (Google Research, arXiv)
+  - Third Workshop on CV for AR/VR - VERIFIED (CVPR 2019 program)
+  
+  **LaSOT Benchmark**:
+  - Fan et al., IJCV 2021 - VERIFIED (arXiv, official site)
+
+## [0.12.11] - 2026-01-22 21:25
+
+### Fixed
+- `report.ipynb`: Question 10 - Fixed inconsistent DaSiamRPN FPS claim
+  - **Cell 65**: Changed "~200 FPS on GPU" to "~160 FPS on GPU" (matches paper)
+  - **Verified**: DaSiamRPN paper (ECCV 2018) reports 160 FPS on short-term benchmarks, 110 FPS on long-term
+  - Cell 78 already had correct value (~160 FPS on NVIDIA GTX1060)
+
 ## [0.12.10] - 2026-01-22 00:56
 
 ### Updated
