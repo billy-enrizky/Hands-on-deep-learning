@@ -19,6 +19,7 @@ dependencies = [
     "mediapipe==0.10.21",
     "opencv-contrib-python>=4.8.0",
     "torchinfo>=1.8.0",
+    "celluloid>=0.2.0",
 ]
 
 [project.optional-dependencies]
