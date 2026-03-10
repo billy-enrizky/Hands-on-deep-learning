@@ -22,3 +22,6 @@ tracker_models
 nietzsche.txt
 
 runs
+
+checkpoints
+reconstructed_results.txt
