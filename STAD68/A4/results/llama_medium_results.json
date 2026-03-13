@@ -1,0 +1,20 @@
+{
+  "config_name": "llama_medium",
+  "model_type": "llama",
+  "checkpoint_path": "/Users/billy/Documents/Hands-on-Deep-Learning/STAD68/A4/checkpoints/llama_medium/best_model.pth",
+  "epoch": 149,
+  "train_loss": 0.016260294802486898,
+  "recon_accuracy": 0.38164063096046447,
+  "generation_settings": {
+    "do_sample": false,
+    "temperature": 1.0,
+    "top_k": 0,
+    "top_p": 1.0
+  },
+  "fid_score": 65.80728149414062,
+  "pdr": {
+    "pokemon_count": 77,
+    "total": 80,
+    "ratio": 0.9625
+  }
+}

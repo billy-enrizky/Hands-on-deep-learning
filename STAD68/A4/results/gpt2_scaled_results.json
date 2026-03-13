@@ -1,0 +1,20 @@
+{
+  "config_name": "gpt2_scaled",
+  "model_type": "gpt2",
+  "checkpoint_path": "/Users/billy/Documents/Hands-on-Deep-Learning/STAD68/A4/checkpoints/gpt2_scaled/best_model.pth",
+  "epoch": 100,
+  "train_loss": 0.18214953728020192,
+  "recon_accuracy": 0.3594531357288361,
+  "generation_settings": {
+    "do_sample": false,
+    "temperature": 1.0,
+    "top_k": 0,
+    "top_p": 1.0
+  },
+  "fid_score": 68.15718078613281,
+  "pdr": {
+    "pokemon_count": 79,
+    "total": 80,
+    "ratio": 0.9875
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "config_name": "qwen2_medium",
+  "model_type": "qwen2",
+  "checkpoint_path": "/Users/billy/Documents/Hands-on-Deep-Learning/STAD68/A4/checkpoints/qwen2_medium/best_model.pth",
+  "epoch": 150,
+  "train_loss": 0.016326288622803987,
+  "recon_accuracy": 0.36523438096046446,
+  "generation_settings": {
+    "do_sample": false,
+    "temperature": 1.0,
+    "top_k": 0,
+    "top_p": 1.0
+  },
+  "fid_score": 65.0647201538086,
+  "pdr": {
+    "pokemon_count": 80,
+    "total": 80,
+    "ratio": 1.0
+  }
+}
