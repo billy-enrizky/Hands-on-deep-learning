@@ -1,5 +1,14 @@
 # Changelog - STAD68 Assignment 4: Training Transformer
 
+## 2026-03-13 22:13:00
+
+### Changed
+- Added all 7 model configuration details to notebook results summary (was previously only Qwen2 Medium)
+  - GPT-2 Baseline: layers, heads, embedding dim, dropout settings
+  - GPT-2 Scaled: deeper/wider GPT-2 config
+  - LLaMA Small/Medium/Large: hidden size, intermediate size, heads
+  - Qwen2 Small/Medium: including key-value head counts for GQA
+
 ## 2026-03-13 12:33:57
 
 ### Fixed
@@ -39,7 +48,7 @@
 - llama_small: FID=64.95, PDR=0.913, 1.1M params, 100 epochs
 - qwen2_small: FID=65.88, PDR=0.938, 1.1M params, 100 epochs
 - llama_medium: FID=65.81, PDR=0.963, 6.4M params, 150 epochs
-- llama_large: training in progress (200 epochs), 14.3M params
+- llama_large: FID=66.03, PDR=0.963, 19.0M params, 200 epochs
 - **qwen2_medium: FID=65.06, PDR=1.000, 6.4M params, 150 epochs (BEST)**
 
 ### Infrastructure
